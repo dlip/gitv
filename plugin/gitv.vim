@@ -119,7 +119,7 @@ fu! Gitv_OpenGitCommand(command, windowCmd, ...) "{{{
         endif
         silent setlocal fdm=syntax
         nnoremap <buffer> <silent> q :q!<CR>
-        nnoremap <buffer> <silent> u :if exists('b:Git_Command')<bar>call Gitv_OpenGitCommand(b:Git_Command, '', 1)<bar>endif<cr>
+        nnoremap <buffer> <silent> R :if exists('b:Git_Command')<bar>call Gitv_OpenGitCommand(b:Git_Command, '', 1)<bar>endif<cr>
         call append(0, split(result, '\n')) "system converts eols to \n regardless of os.
         silent setlocal nomodifiable
         silent setlocal readonly
@@ -491,7 +491,7 @@ fu! s:SetupMappings() "{{{
     nnoremap <buffer> <silent> i :call <SID>OpenGitvCommit("Gedit", 1)<cr>
 
     nnoremap <buffer> <silent> q :call <SID>CloseGitv()<cr>
-    nnoremap <buffer> <silent> u :call <SID>LoadGitv('', 1, b:Gitv_CommitCount, b:Gitv_ExtraArgs, <SID>GetRelativeFilePath(), <SID>GetRange())<cr>
+    nnoremap <buffer> <silent> R :call <SID>LoadGitv('', 1, b:Gitv_CommitCount, b:Gitv_ExtraArgs, <SID>GetRelativeFilePath(), <SID>GetRange())<cr>
     nnoremap <buffer> <silent> a :call <SID>LoadGitv('', 0, b:Gitv_CommitCount, <SID>ToggleArg(b:Gitv_ExtraArgs, '--all'), <SID>GetRelativeFilePath(), <SID>GetRange())<cr>
     nnoremap <buffer> <silent> co :call <SID>CheckOutGitvCommit()<cr>
 
